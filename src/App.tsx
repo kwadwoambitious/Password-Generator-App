@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import IncludeUppercase from "./components/IncludeUppercase";
+import IncludeLowercase from "./components/IncludeLowercase";
+import IncludeNumbers from "./components/IncludeNumbers";
+import IncludeSymbols from "./components/IncludeSymbols";
+import { generatePassword } from "./utils/generatePassword";
+import PasswordLength from "./components/PasswordLength";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [password, setPassword] = useState<string | null>(null);
+
+  const [passwordLength, setPasswordLength] = useState<number>(4);
+
+  const [includeUppercase, setIncludeUppercase] = useState<boolean>(true);
+
+  const [includeLowercase, setIncludeLowercase] = useState<boolean>(true);
+
+  const [includeNumbers, setIncludeNumbers] = useState<boolean>(true);
+
+  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
+
+  function handleGeneratePassword() {
+    const newPassword = generatePassword({
+      length: passwordLength,
+      includeUppercase,
+      includeLowercase,
+      includeNumbers,
+      includeSymbols,
+    });
+    setPassword(newPassword);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {password}
+      <PasswordLength
+        passwordLength={passwordLength}
+        setPasswordLength={setPasswordLength}
+      />
+      <IncludeUppercase
+        includeUppercase={includeUppercase}
+        setIncludeUppercase={setIncludeUppercase}
+      />
+      <IncludeLowercase
+        includeLowercase={includeLowercase}
+        setIncludeLowercase={setIncludeLowercase}
+      />
+      <IncludeNumbers
+        includeNumbers={includeNumbers}
+        setIncludeNumbers={setIncludeNumbers}
+      />
+      <IncludeSymbols
+        includeSymbols={includeSymbols}
+        setIncludeSymbols={setIncludeSymbols}
+      />
+      <button onClick={handleGeneratePassword}>GENERATE</button>
+    </div>
+  );
 }
-
-export default App
