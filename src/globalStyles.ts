@@ -5,8 +5,7 @@ const GlobalStyle = createGlobalStyle`
   // Define a custom font-face
   @font-face {
     font-family: 'JetBrainsMono';
-    src: url('/fonts/static/JetBrainsMono-Bold.ttf') format('truetype');
-    font-weight: bold;
+    src: url('/Password-Generator-App/fonts/static/JetBrainsMono-Bold.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
   }
@@ -23,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
     min-height: 100svh; 
     font-family: 'JetBrainsMono', sans-serif;
+    font-weight: bold;
   }
 `;
 
