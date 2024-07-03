@@ -284,7 +284,7 @@ Error generating stack: `+l.message+`
   background-color: #18171f;
   padding: 10px 32px;
 
-  @media (max-width: 500px) {
+  @media (max-width:500px) {
     padding: 4px 18px;
   }
 `,A0=U.div`
