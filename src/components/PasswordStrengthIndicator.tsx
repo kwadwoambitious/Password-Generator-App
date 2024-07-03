@@ -15,7 +15,7 @@ const IndicatorWrapper = styled.div`
   background-color: #18171f;
   padding: 10px 32px;
 
-  @media (max-width: 375px) {
+  @media (max-width:500px) {
     padding: 4px 18px;
   }
 `;
@@ -36,7 +36,7 @@ const IndicatorBox = styled.div<{ filled: boolean; color: string }>`
   margin-left: 8px;
   transition: background-color 0.3s ease;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     margin-left: 6px;
     width: 6px;
     height: 24px;
@@ -49,7 +49,7 @@ const IndicatorName = styled.h4`
   font-size: 18px;
   font-family: inherit;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     font-size: 16px;
   }
 `;
@@ -62,7 +62,7 @@ const StrengthName = styled.div`
   color: #E6E5EA;
   font-family: inherit;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     font-size: 15px;
     margin-right: 6px;
   }
