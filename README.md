@@ -11,7 +11,6 @@
 - TypeScript
 - React
 - Styled-components
-- React Testing Library / Jest
 - Clipboard API
 
 ## Getting Started
