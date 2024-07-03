@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 // Define the props for the PasswordStrengthIndicator component
@@ -88,10 +88,10 @@ const PasswordStrengthIndicator: React.FC<PasswordStrengthIndicatorProps> = ({ p
     return names[strength - 1] || ''; // Return empty string if no password
   };
 
-  // Calculate the strength of the password
-  const strength = password ? calculateStrength(password) : 0;
+  // Memoize the strength calculation to avoid unnecessary recalculations
+  const strength = useMemo(() => (password ? calculateStrength(password) : 0), [password]);
   // Get the corresponding strength name
-  const strengthName = getStrengthName(strength);
+  const strengthName = useMemo(() => getStrengthName(strength), [strength]);
   // Define the colors for each strength level
   const colors = ['#F64A4A', '#FB7C58', '#F8CD65', '#A4FFAF'];
 
