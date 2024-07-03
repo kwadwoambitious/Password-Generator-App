@@ -42,8 +42,7 @@ Error generating stack: `+l.message+`
   // Define a custom font-face
   @font-face {
     font-family: 'JetBrainsMono';
-    src: url('/fonts/static/JetBrainsMono-Bold.ttf') format('truetype');
-    font-weight: bold;
+    src: url('/Password-Generator-App/fonts/static/JetBrainsMono-Bold.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
   }
@@ -60,6 +59,7 @@ Error generating stack: `+l.message+`
     align-items: center;
     min-height: 100svh; 
     font-family: 'JetBrainsMono', sans-serif;
+    font-weight: bold;
   }
 `,x0=U.input`
   width: 20px;
@@ -284,7 +284,7 @@ Error generating stack: `+l.message+`
   background-color: #18171f;
   padding: 10px 32px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     padding: 4px 18px;
   }
 `,A0=U.div`
@@ -299,7 +299,7 @@ Error generating stack: `+l.message+`
   margin-left: 8px;
   transition: background-color 0.3s ease;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     margin-left: 6px;
     width: 6px;
     height: 24px;
@@ -309,7 +309,7 @@ Error generating stack: `+l.message+`
   font-size: 18px;
   font-family: inherit;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     font-size: 16px;
   }
 `,B0=U.div`
@@ -319,7 +319,7 @@ Error generating stack: `+l.message+`
   color: #E6E5EA;
   font-family: inherit;
 
-  @media (max-width: 375px) {
+  @media (max-width: 500px) {
     font-size: 15px;
     margin-right: 6px;
   }
