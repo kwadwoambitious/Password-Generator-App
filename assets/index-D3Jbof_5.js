@@ -284,7 +284,7 @@ Error generating stack: `+l.message+`
   background-color: #18171f;
   padding: 10px 32px;
 
-  @media (max-width:500px) {
+  @media (max-width: 500px) {
     padding: 4px 18px;
   }
 `,A0=U.div`
@@ -305,7 +305,7 @@ Error generating stack: `+l.message+`
     height: 24px;
   }
 `,U0=U.h4`
-  color: #817D92;
+  color: #817d92;
   font-size: 18px;
   font-family: inherit;
 
@@ -316,14 +316,14 @@ Error generating stack: `+l.message+`
   margin-right: 16px;
   font-weight: bold;
   font-size: 24px;
-  color: #E6E5EA;
+  color: #e6e5ea;
   font-family: inherit;
 
   @media (max-width: 500px) {
     font-size: 15px;
     margin-right: 6px;
   }
-`,H0=({password:e})=>{const t=i=>{let u=0;return i.length>=8&&u++,/[A-Z]/.test(i)&&u++,/[a-z]/.test(i)&&u++,/[0-9]/.test(i)&&u++,/[!@#$%^&*(),.?":{}|<>]/.test(i)&&u++,Math.min(u,4)},n=i=>["TOO WEAK!","WEAK","MEDIUM","STRONG"][i-1]||"",r=j.useMemo(()=>e?t(e):0,[e]),o=j.useMemo(()=>n(r),[r]),l=["#F64A4A","#FB7C58","#F8CD65","#A4FFAF"];return L.jsxs(M0,{children:[L.jsx(U0,{children:"STRENGTH"}),L.jsxs(A0,{children:[L.jsx(B0,{children:o}),[...Array(4)].map((i,u)=>L.jsx(F0,{filled:u<r,color:l[r-1]||"#E6E5EA"},u))]})]})},Wa="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Qa="abcdefghijklmnopqrstuvwxyz",Ka="0123456789",Ya="!@#$%^&*()_+[]{}|;:,.<>?/~`=-";function V0(e){let t="",n="",r="";if(e.includeUppercase&&(t+=Wa,r+=or(Wa)),e.includeLowercase&&(t+=Qa,r+=or(Qa)),e.includeNumbers&&(t+=Ka,r+=or(Ka)),e.includeSymbols&&(t+=Ya,r+=or(Ya)),e.length<r.length)throw new Error("Password length is too short to include all selected options");n+=r;for(let o=n.length;o<e.length;o++)n+=or(t);return n=W0(n),n}function or(e){const t=Math.floor(Math.random()*e.length);return e[t]}function W0(e){return e.split("").sort(()=>Math.random()-.5).join("")}const Q0=U.div`
+`,H0=({password:e,includeUppercase:t,includeLowercase:n,includeNumbers:r,includeSymbols:o})=>{const l=p=>{const m=p.length,h=[t,n,r,o].filter(Boolean).length;if(m===4&&(h===1||h===2||h===3||h===4))return 1;if(m===5||m===6){if(h===1||h===2)return 1;if(h===3||h===4)return 2}else if(m===7){if(h===1)return 1;if(h===2)return 2;if(h===3||h===4)return 3}else if(m>=8){if(h===1)return 1;if(h===2)return 2;if(h===3)return 3;if(h===4)return 4}return 0},i=p=>["TOO WEAK!","WEAK","MEDIUM","STRONG"][p-1]||"",u=j.useMemo(()=>e?l(e):0,[e,t,n,r,o]),s=j.useMemo(()=>i(u),[u]),c=["#F64A4A","#FB7C58","#F8CD65","#A4FFAF"];return L.jsxs(M0,{children:[L.jsx(U0,{children:"STRENGTH"}),L.jsxs(A0,{children:[L.jsx(B0,{children:s}),[...Array(4)].map((p,m)=>L.jsx(F0,{filled:m<u,color:c[u-1]||"#E6E5EA"},m))]})]})},Wa="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Qa="abcdefghijklmnopqrstuvwxyz",Ka="0123456789",Ya="!@#$%^&*()_+[]{}|;:,.<>?/~`=-";function V0(e){let t="",n="",r="";if(e.includeUppercase&&(t+=Wa,r+=or(Wa)),e.includeLowercase&&(t+=Qa,r+=or(Qa)),e.includeNumbers&&(t+=Ka,r+=or(Ka)),e.includeSymbols&&(t+=Ya,r+=or(Ya)),e.length<r.length)throw new Error("Password length is too short to include all selected options");n+=r;for(let o=n.length;o<e.length;o++)n+=or(t);return n=W0(n),n}function or(e){const t=Math.floor(Math.random()*e.length);return e[t]}function W0(e){return e.split("").sort(()=>Math.random()-.5).join("")}const Q0=U.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -522,4 +522,4 @@ Error generating stack: `+l.message+`
   @media (max-width: 375px) {
     margin-left: 16px;
   }
-`;function A1(){const[e,t]=j.useState(null),[n,r]=j.useState(0),[o,l]=j.useState(!1),[i,u]=j.useState(!1),[s,c]=j.useState(!1),[p,m]=j.useState(!1),[h,y]=j.useState(!1);function v(){if(n<4||!(o||i||s||p)){t(null),V.error("Password: minimum 4 characters and 1 checkbox.");return}const T=V0({length:n,includeUppercase:o,includeLowercase:i,includeNumbers:s,includeSymbols:p});t(T)}function w(){e?(y(!0),setTimeout(()=>{y(!1)},1e3)):V.error("There is no password to copy!")}return L.jsxs(L.Fragment,{children:[L.jsx(S0,{}),L.jsx(N1,{}),L.jsx($1,{children:"Password Generator"}),L.jsxs(I1,{children:[L.jsx(L1,{hasPassword:e!==null,children:e||"P4$5W0rD!"}),L.jsxs(O1,{children:[h&&L.jsx(R1,{children:"COPIED"}),L.jsx(h1.CopyToClipboard,{text:e||"",onCopy:w,children:L.jsx(j1,{src:m1,alt:"icon Copy"})})]})]}),L.jsxs(z1,{children:[L.jsx(X0,{passwordLength:n,setPasswordLength:r}),L.jsx(C0,{includeUppercase:o,setIncludeUppercase:l}),L.jsx(N0,{includeLowercase:i,setIncludeLowercase:u}),L.jsx(L0,{includeNumbers:s,setIncludeNumbers:c}),L.jsx(D0,{includeSymbols:p,setIncludeSymbols:m}),L.jsx(H0,{password:e}),L.jsxs(D1,{onClick:v,children:["GENERATE",L.jsx(M1,{src:g1,alt:"icon arrow"})]})]})]})}hi.createRoot(document.getElementById("root")).render(L.jsx(D.StrictMode,{children:L.jsx(A1,{})}));
+`;function A1(){const[e,t]=j.useState(null),[n,r]=j.useState(0),[o,l]=j.useState(!1),[i,u]=j.useState(!1),[s,c]=j.useState(!1),[p,m]=j.useState(!1),[h,y]=j.useState(!1);function v(){if(n<4||!(o||i||s||p)){t(null),V.error("Password: minimum 4 characters and 1 checkbox.");return}const T=V0({length:n,includeUppercase:o,includeLowercase:i,includeNumbers:s,includeSymbols:p});t(T)}function w(){e?(y(!0),setTimeout(()=>{y(!1)},1e3)):V.error("There is no password to copy!")}return L.jsxs(L.Fragment,{children:[L.jsx(S0,{}),L.jsx(N1,{}),L.jsx($1,{children:"Password Generator"}),L.jsxs(I1,{children:[L.jsx(L1,{hasPassword:e!==null,children:e||"P4$5W0rD!"}),L.jsxs(O1,{children:[h&&L.jsx(R1,{children:"COPIED"}),L.jsx(h1.CopyToClipboard,{text:e||"",onCopy:w,children:L.jsx(j1,{src:m1,alt:"icon Copy"})})]})]}),L.jsxs(z1,{children:[L.jsx(X0,{passwordLength:n,setPasswordLength:r}),L.jsx(C0,{includeUppercase:o,setIncludeUppercase:l}),L.jsx(N0,{includeLowercase:i,setIncludeLowercase:u}),L.jsx(L0,{includeNumbers:s,setIncludeNumbers:c}),L.jsx(D0,{includeSymbols:p,setIncludeSymbols:m}),L.jsx(H0,{password:e,includeUppercase:o,includeLowercase:i,includeNumbers:s,includeSymbols:p}),L.jsxs(D1,{onClick:v,children:["GENERATE",L.jsx(M1,{src:g1,alt:"icon arrow"})]})]})]})}hi.createRoot(document.getElementById("root")).render(L.jsx(D.StrictMode,{children:L.jsx(A1,{})}));
