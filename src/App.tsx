@@ -258,7 +258,7 @@ export default function App() {
           includeSymbols={includeSymbols}
           setIncludeSymbols={setIncludeSymbols}
         />
-        <PasswordStrengthIndicator password={password} />
+        <PasswordStrengthIndicator password={password} includeUppercase={includeUppercase} includeLowercase={includeLowercase} includeNumbers={includeNumbers} includeSymbols={includeSymbols} />
         <GenerateButton onClick={handleGeneratePassword}>
           GENERATE
           <GenerateButtonArrow src={iconArrow} alt="icon arrow" />
